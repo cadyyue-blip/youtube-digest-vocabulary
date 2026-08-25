@@ -2,6 +2,8 @@
 
 This derivative adds an English-learning vocabulary workflow: contextual Chinese translation and explanation for transcript selections, an optional **Add to Vocabulary** action, a persistent **Vocabulary** tab, cross-video highlighting, and removal for mastered words.
 
+Original project and author: [Zara Zhang](https://github.com/zarazhangrui).
+
 [English](README.md) | [简体中文](README.zh-CN.md)
 
 Turn every YouTube video into a resource for deep learning. YouTube Digest brings transcripts, bilingual translation, AI overviews, explanations, and timestamped notes into one Chrome side panel, so you can study ideas and language without losing your place.
