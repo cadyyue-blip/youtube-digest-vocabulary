@@ -1,8 +1,8 @@
 # YouTube Digest
 
-This derivative adds an English-learning vocabulary workflow: contextual Chinese translation and explanation for transcript selections, an optional **Add to Vocabulary** action, a persistent **Vocabulary** tab, cross-video highlighting, and removal for mastered words.
+This derivative adds an English-learning vocabulary notebook workflow: contextual Chinese translation and explanation for transcript selections, an optional **Add to Vocabulary** action, a persistent **Vocabulary** tab, cross-video highlighting, and removal for mastered words.
 
-Original project and author: [Zara Zhang](https://github.com/zarazhangrui).
+Based on the original [YouTube Digest](https://github.com/zarazhangrui/youtube-digest) project by [Zara Zhang](https://github.com/zarazhangrui).
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
@@ -13,6 +13,7 @@ Turn every YouTube video into a resource for deep learning. YouTube Digest bring
 - Build understanding with an AI overview, chapters, key quotes, and selected-text explanations.
 - Navigate long videos by clicking timestamps in the transcript, overview, or notes.
 - Save polished timestamped notes for later study.
+- Save explained words and phrases to a persistent Vocabulary tab, hear browser-provided pronunciation, and highlight exact saved terms when they appear in other video transcripts.
 - Keep control of your data with your own API keys, local Chrome storage, and no analytics or telemetry.
 
 YouTube Digest is a bring-your-own-key project installed locally from GitHub. It is not available through the Chrome Web Store, does not include API credits, and does not run a developer-operated server.
@@ -21,7 +22,7 @@ YouTube Digest is a bring-your-own-key project installed locally from GitHub. It
 
 You do not need to understand the code or use the command line. Send this message to your coding agent:
 
-> Download or clone this project into a permanent folder I choose, tell me its exact full path, and use that same folder for Chrome's Load unpacked step. If I need a suggestion during this first installation, offer `~/Documents/youtube-digest` on macOS or Linux, or `%USERPROFILE%\Documents\youtube-digest` on Windows, but do not assume either path. Walk me through installation and setup in simple terms. https://github.com/zarazhangrui/youtube-digest
+> Download or clone this project into a permanent folder I choose, tell me its exact full path, and use that same folder for Chrome's Load unpacked step. If I need a suggestion during this first installation, offer `~/Documents/youtube-digest` on macOS or Linux, or `%USERPROFILE%\Documents\youtube-digest` on Windows, but do not assume either path. Walk me through installation and setup in simple terms. https://github.com/cadyyue-blip/youtube-digest-vocabulary
 
 Your agent should:
 
@@ -39,7 +40,7 @@ Never paste an API key into an AI chat, source file, screenshot, or public messa
 
 If you prefer to do it yourself:
 
-1. Open [github.com/zarazhangrui/youtube-digest](https://github.com/zarazhangrui/youtube-digest).
+1. Open [github.com/cadyyue-blip/youtube-digest-vocabulary](https://github.com/cadyyue-blip/youtube-digest-vocabulary).
 2. Choose **Code**, then **Download ZIP**.
 3. Choose a permanent folder and unzip the project there. Optional suggestions are `~/Documents/youtube-digest` on macOS or Linux, or `%USERPROFILE%\Documents\youtube-digest` on Windows. You may use a different folder.
 4. In Chrome, open `chrome://extensions`.
@@ -98,7 +99,8 @@ Keys and settings are stored in Chrome's local extension storage on your device.
 3. Read the timestamped transcript, or choose **Original**, **中文**, or **双语**.
 4. Open **Overview** when you want AI-generated chapters and key quotes.
 5. Select transcript text when you want an AI explanation.
-6. Save a note from the player or a key quote, then revisit it from **Notes**.
+6. Use **Add** on a learning item to save it in **Vocabulary**. Exact saved terms are highlighted when they appear in other video transcripts.
+7. Save a note from the player or a key quote, then revisit it from **Notes**.
 
 ## What works today
 
@@ -107,6 +109,7 @@ Keys and settings are stored in Chrome's local extension storage on your device.
 - Native subtitle tracks returned by Supadata. YouTube Digest prefers English when available, but may show another native language.
 - Original, Simplified Chinese, and aligned bilingual transcript views.
 - AI overviews, selected-text explanations, translation, and automatic note polishing.
+- A persistent local Vocabulary tab with structured learning cards, monthly grouping, browser-provided pronunciation, removal, and exact-term highlighting across video transcripts.
 - Local notes and a local cache for recent transcript and digest results.
 - DeepSeek V4 Flash for all published AI features. Other providers require a local code adaptation and are not supported by this published version.
 
@@ -152,7 +155,8 @@ YouTube Digest uses plain HTML, CSS, and JavaScript with no build step, so it is
 
 - Add more translation languages and let each person choose a learning language.
 - Create customized summary templates for lectures, interviews, tutorials, reviews, or research talks.
-- Build a vocabulary notebook that saves a word, its sentence, meaning, and video timestamp.
+- Add exact source sentences and video timestamps to saved vocabulary entries.
+- Add spaced repetition, review sessions, or mastery tracking for saved vocabulary.
 - Export notes and vocabulary to Markdown, CSV, Anki, or another study tool.
 - Add personal topic filters that highlight the chapters most relevant to a goal.
 - Add optional local-model support for a different privacy and cost tradeoff.
@@ -169,7 +173,7 @@ YouTube Digest makes provider requests directly from the extension:
 1. It sends a canonical YouTube watch URL to Supadata to request the native transcript.
 2. It sends the transcript and relevant video metadata to DeepSeek when you request AI features.
 3. Focused features send only the content they need, such as selected text with context or small transcript batches for translation.
-4. It stores keys, settings, notes, and recent cache entries locally in Chrome.
+4. It stores keys, settings, notes, vocabulary entries, and recent cache entries locally in Chrome.
 
 There is no YouTube Digest account system, advertising, analytics, or telemetry. Supadata and DeepSeek still receive data under their own terms and privacy policies. See [PRIVACY.md](PRIVACY.md) for details.
 
