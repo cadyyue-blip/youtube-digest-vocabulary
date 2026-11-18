@@ -1,5 +1,9 @@
 # YouTube Digest
 
+这个二创版本增加了一套面向英语学习的单词本流程：选中字幕后获得结合上下文的中文讲解，把重点单词或短语加入 **Vocabulary**，跨视频高亮再次出现的相同词项，并在掌握后移除。
+
+本项目基于 [Zara Zhang](https://github.com/zarazhangrui) 开源的原版 [YouTube Digest](https://github.com/zarazhangrui/youtube-digest) 二次创作。
+
 [English](README.md) | [简体中文](README.zh-CN.md)
 
 把每个 YouTube 视频变成一份可以深入学习的资料。YouTube Digest 把字幕、双语翻译、AI 概览、内容讲解和时间戳笔记放进同一个 Chrome 侧边栏，让你可以持续学习视频中的知识和语言，同时不丢失原视频上下文。
@@ -9,6 +13,7 @@
 - 通过 AI 概览、章节、重点引用和选中文本讲解建立系统理解。
 - 点击字幕、概览或笔记中的时间戳，快速跳转到对应位置。
 - 保存自动润色的时间戳笔记，方便之后复习。
+- 把讲解后的单词或短语加入本地单词本，播放浏览器提供的发音，并在它们出现在其他视频字幕中时高亮相同词项。
 - 使用自己的 API Key，数据保存在本地 Chrome 中，不包含分析统计或行为追踪。
 
 YouTube Digest 是一个需要自行提供 API Key 的开源项目，通过 GitHub 安装。目前没有上架 Chrome 应用商店，不赠送 API 额度，也没有开发者运营的服务器。
@@ -17,7 +22,7 @@ YouTube Digest 是一个需要自行提供 API Key 的开源项目，通过 GitH
 
 你不需要看懂代码，也不需要会使用命令行。把下面这段话发送给你的编程 Agent：
 
-> 请把这个项目下载或克隆到我选择的长期保留文件夹，告诉我准确的完整路径，并让 Chrome“加载已解压的扩展程序”使用同一个文件夹。如果我在第一次安装时需要位置建议，可以推荐 macOS 或 Linux 上的 `~/Documents/youtube-digest`，或 Windows 上的 `%USERPROFILE%\Documents\youtube-digest`，但不要假设我一定使用这些路径。请用简单易懂的语言一步一步指导我完成安装和配置。https://github.com/zarazhangrui/youtube-digest
+> 请把这个项目下载或克隆到我选择的长期保留文件夹，告诉我准确的完整路径，并让 Chrome“加载已解压的扩展程序”使用同一个文件夹。如果我在第一次安装时需要位置建议，可以推荐 macOS 或 Linux 上的 `~/Documents/youtube-digest`，或 Windows 上的 `%USERPROFILE%\Documents\youtube-digest`，但不要假设我一定使用这些路径。请用简单易懂的语言一步一步指导我完成安装和配置。https://github.com/cadyyue-blip/youtube-digest-vocabulary
 
 你的 Agent 应该帮你：
 
@@ -35,7 +40,7 @@ YouTube Digest 是一个需要自行提供 API Key 的开源项目，通过 GitH
 
 如果你想自己操作：
 
-1. 打开 [github.com/zarazhangrui/youtube-digest](https://github.com/zarazhangrui/youtube-digest)。
+1. 打开 [github.com/cadyyue-blip/youtube-digest-vocabulary](https://github.com/cadyyue-blip/youtube-digest-vocabulary)。
 2. 点击 **Code**，再选择 **Download ZIP**。
 3. 选择一个长期保留的文件夹，并把项目解压到这里。可选建议是 macOS 或 Linux 上的 `~/Documents/youtube-digest`，或 Windows 上的 `%USERPROFILE%\Documents\youtube-digest`。你也可以使用其他文件夹。
 4. 在 Chrome 地址栏打开 `chrome://extensions`。
@@ -94,7 +99,8 @@ API Key 和设置保存在你设备上的 Chrome 扩展本地存储中。发布�
 3. 阅读带时间戳的字幕，或选择 **Original**、**中文**、**双语**。
 4. 打开 **Overview**，查看 AI 生成的章节和重点引用。
 5. 选中字幕，获取 AI 内容讲解。
-6. 从播放器或重点引用中保存笔记，之后可以在 **Notes** 中查看。
+6. 点击学习项旁的 **Add**，把它保存到 **Vocabulary**。相同词项出现在其他视频字幕中时会被高亮。
+7. 从播放器或重点引用中保存笔记，之后可以在 **Notes** 中查看。
 
 ## 当前支持范围
 
@@ -103,6 +109,7 @@ API Key 和设置保存在你设备上的 Chrome 扩展本地存储中。发布�
 - Supadata 能够返回的原生字幕。YouTube Digest 会优先请求英文字幕，也可能显示其他可用的原生语言。
 - 原文、简体中文和双语对照字幕。
 - AI 概览、选中文本讲解、翻译和自动润色笔记。
+- 本地持久化的 **Vocabulary** 单词本，包括结构化学习卡、按月整理、浏览器发音、移除和跨视频相同词项高亮。
 - 本地笔记，以及最近字幕、概览和翻译的本地缓存。
 - 发布版本的所有 AI 功能都使用 DeepSeek V4 Flash。其他服务需要修改本地代码，不属于发布版本的支持范围。
 
@@ -148,7 +155,8 @@ YouTube Digest 使用原生 HTML、CSS 和 JavaScript，没有构建步骤，很
 
 - 增加更多翻译语言，并让每个人选择自己的学习语言。
 - 为课程、访谈、教程、测评或研究视频增加自定义总结模板。
-- 增加生词本，保存单词、原句、解释和视频时间戳。
+- 给单词本补充精确的来源原句和视频时间戳。
+- 增加间隔重复、复习模式或掌握度记录。
 - 把笔记和生词导出到 Markdown、CSV、Anki 或其他学习工具。
 - 增加个人主题筛选，只突出与你目标相关的章节。
 - 增加本地模型选项，获得不同的隐私和成本方案。
@@ -165,7 +173,7 @@ YouTube Digest 会直接从扩展向服务商发送请求：
 1. 把标准化的 YouTube 视频地址发送给 Supadata，用于获取原生字幕。
 2. 当你使用 AI 功能时，把字幕和相关视频信息发送给 DeepSeek。
 3. 翻译或讲解等功能只发送当前需要的内容，例如选中的文本和上下文，或少量字幕分段。
-4. API Key、设置、笔记和最近缓存保存在 Chrome 本地。
+4. API Key、设置、笔记、单词本和最近缓存保存在 Chrome 本地。
 
 YouTube Digest 没有账号系统、广告、分析统计或行为追踪。Supadata 和 DeepSeek 仍会按照各自的条款和隐私政策处理数据。详情请查看 [PRIVACY.md](PRIVACY.md)。
 
