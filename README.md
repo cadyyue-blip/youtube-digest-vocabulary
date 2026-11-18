@@ -1,4 +1,4 @@
-# YouTube Digest
+# YouTube Digest vocabulary
 
 This derivative adds an English-learning vocabulary notebook workflow: contextual Chinese translation and explanation for transcript selections, an optional **Add to Vocabulary** action, a persistent **Vocabulary** tab, cross-video highlighting, and removal for mastered words.
 
